@@ -1,0 +1,275 @@
+.navbar {
+  border-bottom: 2px solid rgb(216, 216, 216);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  width: 100%;
+  box-shadow: 0px 1px 0px #eeeeee;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  background-color: #f9f7f2;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: calc(767px)) {
+  .container {
+    max-width: inherit;
+  }
+}
+
+.logo {
+  img {
+    width: 70px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  font-family: "brownlight", sans-serif;
+  font-weight: 600;
+}
+
+.link-item {
+  text-decoration: none;
+  color: black;
+  transition: color 0.5s ease-in-out;
+  position: relative;
+}
+
+.links .link-item::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  position: absolute;
+  left: 50%;
+  bottom: -0.5rem;
+  background-color: var(--primary);
+  transition: width 0.5s ease, left 0.5s ease; /* Add specific transition properties */
+}
+
+.links .link-item:hover {
+  color: var(--primary);
+}
+
+.links .link-item:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.links .active {
+  color: var(--primary);
+}
+
+.links .active::after {
+  width: 100%;
+  left: 0;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bell svg path {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.bell:hover {
+  svg path {
+    fill: rgb(100, 100, 100);
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 999px;
+  padding: 0 0.4rem;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--highlight);
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+  font-family: "Ivy Mode", sans-serif;
+}
+
+.menu-icon svg rect {
+  transition: all 0.5s ease-in-out;
+}
+
+.menu,
+.language {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu:hover {
+  background-color: #b79535;
+  border: 1px solid #b79535;
+  .profile {
+    background-color: #fff;
+    color: #b79535;
+  }
+  .menu-icon svg rect {
+    fill: #fff;
+  }
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 1.7rem;
+  padding: 1rem 0rem;
+  right: 0;
+  background-color: white;
+  box-shadow: 2px 2px 10px rgba(209, 209, 209, 0.551);
+  animation: slideDown 0.5s ease-in-out;
+  .link-item {
+    transition: all 0.5s ease-in-out;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "Brown", sans-serif;
+  }
+  .link-item:hover {
+    color: var(--primary);
+    background-color: #ff385d0e;
+  }
+}
+
+.lang-dropdown {
+  width: 130px;
+  .link-item {
+    padding: 0.1rem 1rem;
+  }
+}
+
+.prof-dropdown {
+  width: 180px;
+}
+
+.show-dropdown {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+.hide-dropdown {
+  animation: slideUp 0.5s ease-in-out forwards;
+}
+
+.mobile {
+  display: none;
+}
+.divider {
+  background-color: rgb(216, 216, 216);
+  height: 1px;
+}
+
+.popup {
+  position: absolute;
+}
+
+.footer {
+  background-color: var(--secondary);
+  color: white;
+  font-family: "Brown", sans-serif !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 2rem 0;
+  div {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.footer-links {
+  text-decoration: none;
+  color: #fff;
+}
+.footer-links:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 992px) {
+  .links {
+    font-size: small;
+  }
+  .dropdown .link-item {
+    font-size: small;
+  }
+  .prof-dropdown {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .large {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .logo {
+    img {
+      width: 60px;
+    }
+  }
+  .footer .container {
+    font-size: smaller;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    top: 2rem;
+    opacity: 0;
+  }
+  100% {
+    top: 1.7rem;
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 1.7rem;
+    opacity: 1;
+  }
+  100% {
+    top: 2rem;
+    opacity: 0;
+  }
+}
